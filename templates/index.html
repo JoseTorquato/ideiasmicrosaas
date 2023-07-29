@@ -1,0 +1,155 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+<div class="course-ticket mt-1">
+    <div class="container-fluid">
+        <div class="row mt-2">
+            {% for idea in ideas %}
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 col-12 mb-10 d-flex">
+                    <div class="course-card card-primary flex-fill">
+                        <div class="course-card__body">
+                            <div class="course-card__title">
+                                <h4>{{ idea.microsaas_name }}</h4>
+                            </div>
+                            <div class="course-card__about">
+                                <span>{{ idea.short_description }}</span>
+                            </div>
+                        </div>
+                        <div class="course-card__footer">
+                            <div class="course-card__footer_left">
+                                <!-- <div class="total-lextures no-btn">
+                                    <img src="{% static 'img/svg/heart.svg' %}" alt="heart" class="svg">
+                                    0 Gostei
+                                </div>
+                                <div class="total-hours no-btn">
+                                    <img class="svg" src="{% static 'img/svg/clock.svg' %}" alt="clock">
+                                    0 Não gostei
+                                </div> -->
+                            </div>
+                            <div class="course-card__footer_right">
+                                <button type="button" class="btn btn-primary btn-sm mt-2" onclick="buildModal(this)" data-idea="{{ idea }}" data-bs-toggle="modal" data-bs-target="#modal-basic">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            {% endfor %}
+        </div>
+        <!-- <div class="row">
+            <div class="col-12">
+                <div class="user-pagination">
+                    <div class="d-flex justify-content-sm-end justify-content-end mt-1 mb-50">
+                        <nav class="dm-page ">
+                            <ul class="dm-pagination d-flex">
+                                <li class="dm-pagination__item">
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
+                                    <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                                    <a href="#" class="dm-pagination__option">
+                                    </a>
+                                </li>
+                                <li class="dm-pagination__item">
+                                    <div class="paging-option">
+                                        <select name="page-number" class="page-selection">
+                                            <option value="20">20/page</option>
+                                            <option value="40">40/page</option>
+                                            <option value="60">60/page</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<!--modal-->
+<div class="modal-basic modal fade show" id="modal-basic" tabindex="-1" style="display: none;" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content modal-bg-white ">
+            <div class="modal-header">
+                <h6 class="modal-title" id="titlle-modal"></h6>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="svg replaced-svg">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6><strong>Descrição:</strong></h6>
+
+                <p id="description-modal"></p>
+
+                <h6><strong>Como funciona:</strong></h6>
+
+                <p id="how-it-works-modal"></p>
+
+                <h6><strong>Modelo de negócio:</strong></h6>
+
+                <p id="business-model-modal"></p>
+
+                <h6><strong>Público-Alvo:</strong></h6>
+
+                <p id="target-audience-modal"></p>
+
+                <h6><strong>Diferencial Competitivo:</strong></h6>
+
+                <p id="competitive-edge-modal"></p>
+
+                <p></p>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<script>
+  function buildModal(data) {
+    const idea = data.getAttribute('data-idea');
+    const ideaObj = JSON.parse(idea.replace(/"/g, '').replace(/'/g, '"'));
+
+    const titleModal = document.getElementById('titlle-modal');
+    const descriptionModal = document.getElementById('description-modal');
+    const howItWorksModal = document.getElementById('how-it-works-modal');
+    const bussinessModelModal = document.getElementById('business-model-modal');
+    const targetAudienceModal = document.getElementById('target-audience-modal');
+    const competitiveEdgeModal = document.getElementById('competitive-edge-modal');
+
+    titleModal.innerHTML = ideaObj.microsaas_name;
+    descriptionModal.innerHTML = ideaObj.description;
+    howItWorksModal.innerHTML = ideaObj.how_it_works
+    bussinessModelModal.innerHTML = ideaObj.business_model;
+    targetAudienceModal.innerHTML = ideaObj.target_audience;
+    competitiveEdgeModal.innerHTML = ideaObj.competitive_edge;
+    // const ulElement = document.createElement('ul');
+    // howItWorksModal.parentNode.insertBefore(ulElement, howItWorksModal);
+    // ideaObj.how_it_works.forEach(item => {
+    //     const liElement = document.createElement('li');
+    //     liElement.className;
+    //     liElement.textContent = item;
+    //     liElement.classList.add('mt-2')
+    //     ulElement.appendChild(liElement);
+    // });
+  }
+</script>
+{% endblock %}
