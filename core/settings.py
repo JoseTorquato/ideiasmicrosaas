@@ -83,16 +83,12 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     'default': {  
-        'ENGINE': 'django_psdb_engine',  
+        'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'ideas',  
-        'USER': '0iqy9t1f9pq7vw1exgjb',  
-        'PASSWORD': 'pscale_pw_k9ORM0jFW3qG6gkHhO4x70jRJHHjdQ4Y1ojR30xM8hp',  
-        'HOST': 'aws.connect.psdb.cloud',  
-        'PORT': '3306', 
-        'OPTIONS': {
-            'init_command': "SET default_storage_engine=InnoDB",
-            'ssl': {'ca': '/etc/ssl/certs/ca-certificates.crt'}
-        }
+        'USER': 'admin',  
+        'PASSWORD': '010711Jph',  
+        'HOST': 'ideas.chsoyezzxz9y.sa-east-1.rds.amazonaws.com',  
+        'PORT': '3306',
     }
 }
 
