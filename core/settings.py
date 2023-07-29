@@ -85,8 +85,8 @@ DATABASES = {
     'default': {  
         'ENGINE': 'django_psdb_engine',  
         'NAME': 'ideas',  
-        'USER': 'vhs7rad0gbpndk58u5se',  
-        'PASSWORD': 'pscale_pw_iFJcFQeVGxDFkfXyVLd5POoVe4Tk0bbrsKspmiAEw0J',  
+        'USER': 'ut9abrotuai6udkbnu2c',  
+        'PASSWORD': 'pscale_pw_hrHEdpKPsmF3ZzvV3f77K0xwu5Pb9zSqZ5WvtvsYF3f',  
         'HOST': 'aws.connect.psdb.cloud',  
         'PORT': '3306', 
         'OPTIONS': {
