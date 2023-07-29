@@ -13,7 +13,6 @@ multidict==6.0.4
 mysqlclient==2.2.0
 openai==0.27.8
 packaging==23.1
-PyMySQL==1.1.0
 requests==2.31.0
 sqlparse==0.4.4
 tqdm==4.65.0
