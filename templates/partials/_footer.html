@@ -4,9 +4,10 @@
             <div class="col-md-9">
                 <div class="footer-copyright">
                     <div class="row">
-                        <form class="form-inline d-flex aling-items-center">
+                        <form class="form-inline d-flex aling-items-center" method="post">
+                            {% csrf_token %}
                             <label class="me-2 text-dark fw-900 align-center" for="inputFooter"><strong>Inscreva-se na Newsletter</strong></label>
-                            <input type="email" class="form-control mr-2 col-sm-4" id="inputFooter" placeholder="Seu email">
+                            <input type="email" name="email-newsletter" class="form-control  col-sm-4" id="inputFooter" placeholder="Seu email...">
                             <button class="btn btn-primary" type="submit">Subscribe</button>
                           </form>
                     </div>
@@ -14,17 +15,19 @@
             </div>
             <div class="col-md-3">
                 <div class="footer-menu text-end">
-                    <ul>
-                        <li>
-                            <a href="https://twitter.com/torquatoxz">Twitter</a>
-                        </li>
-                        <li>
-                            <a href="#">Instagram</a>
-                        </li>
-                        <li>
-                            <a href="#">Email</a>
-                        </li>
-                    </ul>
+                    <div class="row mt-2">
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/torquatoxz"><i class="la la-twitter" style="font-size: 25px;"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/torquatoxz"><i class="la la-instagram" style="font-size: 25px;"></i></a>
+                            </li>
+                            <!-- <li>
+                                <a href="https://twitter.com/torquatoxz"><i class="la la-mail"></i></a>
+                            </li> -->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

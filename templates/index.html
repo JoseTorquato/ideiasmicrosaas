@@ -7,6 +7,19 @@
 {% load static %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div id="success-alert" class="alert alert-success">
+                {{ message }}
+            </div>
+        {% elif message.tags == 'error' %}
+            <div id="error-alert" class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 <div class="course-ticket mt-1">
     <div class="container-fluid">
         <div class="row mt-2">
@@ -18,7 +31,7 @@
                 <div class="text-center">
                     <h2 style="font-size:16px;margin:0 auto;font-style:normal;">
                         Aqui, você encontrará inspiração para o seu próximo projeto de sucesso! <br>
-                        Explore as ideias de MicroSaaS, geradas pelo OpenAI's com o GPT-3.5 e uma comunidade apaixonada. <br>
+                        Explore as ideias de MicroSaaS, geradas pelo OpenAI's com o GPT e uma comunidade apaixonada. <br>
                         Conecte-se com ideias autênticas e dê vida ao seu negócio. 💡🚀
                     </h2>
                 </div>
@@ -29,7 +42,7 @@
             {% for idea in ideas %}
                 <div class="col-md-3"></div>
                 <div class="col-md-6 col-12 mb-10 d-flex">
-                    <div class="course-card card-primary flex-fill">
+                    <div class="course-card flex-fill">
                         <div class="course-card__body">
                             <div class="course-card__title">
                                 <h4>{{ idea.microsaas_name }}</h4>
@@ -50,7 +63,7 @@
                                 </div> -->
                             </div>
                             <div class="course-card__footer_right">
-                                <button type="button" class="btn btn-purple btn-sm mt-2" onclick="buildModal(this)" data-idea="{{ idea }}" data-bs-toggle="modal" data-bs-target="#modal-basic">Saiba mais</button>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" onclick="buildModal(this)" data-idea="{{ idea }}" data-bs-toggle="modal" data-bs-target="#modal-basic">Saiba mais</button>
                             </div>
                         </div>
                     </div>
@@ -167,6 +180,22 @@
     //     ulElement.appendChild(liElement);
     // });
   }
+    document.addEventListener('DOMContentLoaded', function () {
+        // Seleciona o elemento do alerta de erro pelo ID
+        const errorAlert = document.getElementById('error-alert');
+        const successAlert = document.getElementById('success-alert');
+
+        // Fecha o alerta de erro após 2 segundos
+        setTimeout(function () {
+            if (errorAlert) {
+                errorAlert.remove();
+            }
+            if (successAlert) {
+                successAlert.remove();
+            }
+        }, 4000);
+    });
+
 </script>
   
 {% endblock %}

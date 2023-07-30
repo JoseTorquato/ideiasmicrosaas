@@ -16,3 +16,9 @@ class Ideas(models.Model):
 
     def __str__(self):
         return self.microsaas_name
+
+class NewsLetter(models.Model):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField(unique=True, max_length=254)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

@@ -15,8 +15,18 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css">
     {% block head %}{% endblock %}
     <style>
+        /* Aplica a transição para o elemento do alerta de erro */
+        .fade {
+            opacity: 1;
+            transition: opacity 2s ease-out;
+        }
+    
+        .fade.show {
+            opacity: 0;
+        }
+        
         .custom-footer {
-            background-color: rgba(232, 200, 247, 0.582);
+            background-color: rgba(217, 151, 248, 0.705);
             margin: 0 auto;
             padding: auto;
             position: fixed;
