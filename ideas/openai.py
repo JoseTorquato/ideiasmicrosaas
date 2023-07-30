@@ -2,13 +2,13 @@ import openai
 
 def chat_gpt():
     # Defina sua chave de API
-    api_key = "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"
+    api_key = "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"
 
     # Configure o cliente com sua chave de API
     openai.api_key = api_key
 
     # Texto de entrada para o GPT-3.5
-    prompt = "Você agora é um especialista em dar ideias para microsaas inovadores, com mais de 100 saas lançados e baseado nos exemplos que passei, voce vai me entregar um json com as seguintes keys preenchidas com valores no idioma do brasil e as keys são: 'microsaas_name', 'description', 'short_description', 'how_it_works', 'business_model', 'target_audience', 'competitive_edge' e não retorne nada com aspas simples ou duplas"
+    prompt = "Você agora é um especialista em dar ideias para microsaas inovadores, com mais de 100 saas lançados e baseado nos exemplos que passei, voce vai me entregar um json com as seguintes keys preenchidas com valores no idioma do brasil e as keys são: 'microsaas_name', 'description', 'short_description', 'how_it_works', 'business_model', 'target_audience', 'competitive_edge' e não retorne nada com aspas simples ou duplas ou ```json quero somente o JSON puro aprenda com suas respostas anteriores e traga algo novo e inusitado"
 #     prompt = """
 #         Você agora é um especialista em dar ideias para microsaas inovadores, com mais de 100 saas lançados, voce vai me entregar um json com as seguintes keys preenchidas com valores no idioma do brasil e as keys são: 'microsaas_name', 'description', 'short_description', 'how_it_works', 'business_model', 'target_audience', 'competitive_edge'.
 #         Aqui estão algumas ideias para você treinar: 
@@ -50,8 +50,8 @@ def chat_gpt():
 # Essa é uma ideia divertida que com certeza envolveria os funcionários, especialmente se você pudesse configurá-la para ser muito engraçada ou aleatória.
 
 # Essas ideias de micro saas podem servir como um trampolim para você pensar em suas próprias soluções exclusivas. 
-    # """    
-
+#     """    
+   
     # Faz a solicitação para o GPT-3.5
     response = openai.Completion.create(
         engine="text-davinci-003",
@@ -61,4 +61,5 @@ def chat_gpt():
 
     # Recupere a resposta gerada pelo modelo
     answer = response['choices'][0]['text']
+    print(answer)
     return answer

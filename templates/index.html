@@ -10,6 +10,22 @@
 <div class="course-ticket mt-1">
     <div class="container-fluid">
         <div class="row mt-2">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 col-12 mb-10 d-flex flex-column align-items-center">
+                <div class="mb-5">
+                    <img src="{% static 'img/ideiasmicrosaas/microsaas-no-bg-280x80.png' %}" alt="">
+                </div>
+                <div class="text-center">
+                    <h2 style="font-size:16px;margin:0 auto;font-style:normal;">
+                        Aqui, você encontrará inspiração para o seu próximo projeto de sucesso! <br>
+                        Explore as ideias de MicroSaaS, geradas pelo OpenAI's com o GPT-3.5 e uma comunidade apaixonada. <br>
+                        Conecte-se com ideias autênticas e dê vida ao seu negócio. 💡🚀
+                    </h2>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row mt-4">
             {% for idea in ideas %}
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6 col-12 mb-10 d-flex">
@@ -34,7 +50,7 @@
                                 </div> -->
                             </div>
                             <div class="course-card__footer_right">
-                                <button type="button" class="btn btn-primary btn-sm mt-2" onclick="buildModal(this)" data-idea="{{ idea }}" data-bs-toggle="modal" data-bs-target="#modal-basic">Saiba mais</button>
+                                <button type="button" class="btn btn-purple btn-sm mt-2" onclick="buildModal(this)" data-idea="{{ idea }}" data-bs-toggle="modal" data-bs-target="#modal-basic">Saiba mais</button>
                             </div>
                         </div>
                     </div>
@@ -152,4 +168,5 @@
     // });
   }
 </script>
+  
 {% endblock %}
