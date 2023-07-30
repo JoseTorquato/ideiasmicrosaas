@@ -154,6 +154,7 @@
 
 <script>
   function buildModal(data) {
+    console.log(data)
     const idea = data.getAttribute('data-idea');
     const ideaObj = JSON.parse(idea.replace(/"/g, '').replace(/'/g, '"'));
 
