@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-d@!ndk(=r^y_%1vfheu@%z(l0z4y9t0@seuwih!wg_(9^qz_ri
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['ideiasmicrosaas.com.br']
+CSRF_TRUSTED_ORIGINS = ['https://*.ideiasmicrosaas.com.br']
 
 # Application definition
 

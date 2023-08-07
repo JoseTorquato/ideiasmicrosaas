@@ -2,7 +2,7 @@ import openai
 
 def chat_gpt():
     # Defina sua chave de API
-    api_key = "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"
+    api_key = "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"
 
     # Configure o cliente com sua chave de API
     openai.api_key = api_key
