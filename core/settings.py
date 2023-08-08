@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d@!ndk(=r^y_%1vfheu@%z(l0z4y9t0@seuwih!wg_(9^qz_ri'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['ideiasmicrosaas.com.br', '177.71.227.53', '15.229.192.12', '172.31.2.237']
 CSRF_TRUSTED_ORIGINS = ['https://*.ideiasmicrosaas.com.br']
@@ -84,11 +85,11 @@ DATABASES = {
     # }
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'ideas',  
-        'USER': 'admin',  
-        'PASSWORD': '010711Jph',  
-        'HOST': 'ideas.chsoyezzxz9y.sa-east-1.rds.amazonaws.com',  
-        'PORT': '3306',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
