@@ -16,7 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ideias para Microsaas | Inspiração para o seu Próximo Projeto</title>
+    {% block meta %}{% endblock %}
+    
+    <title>{% block title %}{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link  rel="stylesheet" href="{% static 'css/plugin.min.css' %}">
     <link  rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -45,6 +47,9 @@
     </style>
 </head>
 <body class="layout-light">
+    <header class="header-top">
+        {% include 'partials/_top_nav.html' %}
+    </header>
     <main class="main-content">
         <div class="contents-cards mb-3">
             {% block content %}

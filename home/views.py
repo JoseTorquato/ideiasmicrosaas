@@ -27,5 +27,8 @@ def home_view(request):
     data = Ideas.objects.all().order_by('-created_at').values('microsaas_name', 'description', 'short_description', 'how_it_works', 'business_model', 'target_audience', 'competitive_edge')
     return render(request, 'index.html', context={ "ideas": data }) 
 
+def blog_view(request):
+    return render(request, 'pages/mixed/blog/details_five_ideas.html') 
+
 def sitemap_view(request):
     return render(request, 'sitemap.xml') 
