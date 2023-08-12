@@ -31,3 +31,6 @@ def blog_view(request):
 
 def sitemap_view(request):
     return render(request, 'sitemap.xml') 
+
+def robots_view(request):
+    return render(request, 'robots.txt') 
