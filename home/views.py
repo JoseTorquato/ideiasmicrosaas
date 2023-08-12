@@ -23,7 +23,6 @@ def home_view(request):
         else:
             messages.error(request, 'O campo de email não pode estar vazio. Por favor, forneça um email válido.')
 
-
     data = Ideas.objects.all().order_by('-created_at').values('microsaas_name', 'description', 'short_description', 'how_it_works', 'business_model', 'target_audience', 'competitive_edge')
     return render(request, 'index.html', context={ "ideas": data }) 
 

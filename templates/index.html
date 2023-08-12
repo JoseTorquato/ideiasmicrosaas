@@ -39,12 +39,11 @@
             <div class="col-sm-2"></div>
         </div>
         <div class="row mt-4 row-crush">
-            <!-- <div id="container-440b776d457018ee8683b489b981fcd9" class="col-md-6 col-12 mb-10 d-flex max-window"></div> -->
             {% for idea in ideas %}
                 <div class="course-card col-md-6 col-12 mb-10 d-flex max-window">
                     <div class="course-card__container flex-fill">
                         <div class="course-card__content">
-                            <h2 class="course-card__title">{{ idea.microsaas_name }}</h2>
+                            <h2 class="course-card__title mb-2">{{ idea.microsaas_name }}</h2>
                             <p class="course-card__description">{{ idea.short_description }}</p>
                         </div>
                         <div class="course-card__actions">
