@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['ideiasmicrosaas.com.br', '177.71.227.53', '15.229.192.12', '172.31.2.237']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.ideiasmicrosaas.com.br']
 
 # Application definition
